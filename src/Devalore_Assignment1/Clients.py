@@ -24,5 +24,8 @@ class DevClient(GenericClient):
     def get_weather_data(self):
         # actually connects the weather web app and returns a mocked response.
         WAPP.run_app()
-        resp = requests.get("http://127.0.0.1:5000/")
+        try:
+            resp = requests.get("http://127.0.0.1:5000/")
+        except requests.exceptions.RequestException as e:
+            raise SystemExit(e)
         return json.dumps(resp.json(), indent=2)
