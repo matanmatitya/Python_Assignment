@@ -1,0 +1,7 @@
+json
+Flask
+pyowm
+logging
+requests
+threading
+-e .
